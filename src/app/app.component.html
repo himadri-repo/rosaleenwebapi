@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">{{title}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a routerLink="/home/1" routerActiveLink="active" routerLinkActiveOptions="{exact: true}">{{menus[0]}}</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{menus[1]}}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a routerLink="/home/41" routerActiveLink="active">{{menus[2]}}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/home/42" routerActiveLink="active">{{menus[3]}}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/home/43" routerActiveLink="active">{{menus[4]}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a routerLink="/home/2" routerActiveLink="active" routerLinkActiveOptions="{exact: true}">{{menus[5]}}</a>
+                </li>
+                <li>
+                    <a routerLink="/home/3" routerActiveLink="active" routerLinkActiveOptions="{exact: true}">{{menus[6]}}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
