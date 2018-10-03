@@ -44,7 +44,8 @@ var userName = userSchema.virtual('username').get(function() {
     try {
         //console.log(this.name);
         //console.log(JSON.stringify(this));
-        return this.name.firstname + ' ' + this.name.lastname;
+        let name = (this.name.firstname + ' ' + this.name.lastname).trim();
+        return name;
     }
     catch(e) {
         return e;

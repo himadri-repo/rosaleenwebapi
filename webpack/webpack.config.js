@@ -40,7 +40,6 @@ module.exports = {
         new ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)@angular/,
             path.resolve(__dirname, '../src')
-        )
+        ),
     ]
-    
 }

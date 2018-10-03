@@ -99,6 +99,9 @@ router.post('/', function(req, res, next) {
                 }
                 invoice.id = cnt+1;
                 invoice.date = Date.now();
+                if(invoice.technician.name) {
+                    invoice.technician.name = invoice.technician.name.trim();
+                }
                 invoice.save(function(error, updatedInvoice) {
                     if(!customer) {
                         customer = new customerModel({id: customerCount+1, name: updatedInvoice.customer.name, 
