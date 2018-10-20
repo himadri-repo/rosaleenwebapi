@@ -81,6 +81,7 @@ router.post('/', function(req, res, next) {
     let invoice = new invoiceModel(req.body);
     let customer = null;
     let customerCount = 0;
+    console.log('Posted Invoice : ' + JSON.stringify(invoice));
     customerModel.findOne({'mobile': invoice.customer.mobile}).exec((err, result) => {
         if(!err) {
             if(result)
@@ -99,9 +100,9 @@ router.post('/', function(req, res, next) {
                 }
                 invoice.id = cnt+1;
                 invoice.date = Date.now();
-                if(invoice.technician.name) {
-                    invoice.technician.name = invoice.technician.name.trim();
-                }
+                // if(invoice.technician.name) {
+                //     invoice.technician.name = invoice.technician.name.trim();
+                // }
                 invoice.save(function(error, updatedInvoice) {
                     if(!customer) {
                         customer = new customerModel({id: customerCount+1, name: updatedInvoice.customer.name, 
