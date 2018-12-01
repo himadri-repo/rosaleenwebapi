@@ -1,26 +1,26 @@
 #!/usr/bin/env node
-//jshint esversion:6
+// jshint esversion:6
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('bootstrap-server:server');
-var http = require('http');
+let app = require('../app');
+let debug = require('debug')('bootstrap-server:server');
+let http = require('http');
 const PORT = (process.env.PORT || '4000');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(PORT);
+let port = normalizePort(PORT);
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+let server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -35,7 +35,8 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  // tslint:disable-next-line:no-shadowed-variable
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -59,7 +60,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = (typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port);
+  const bind = (typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port);
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -81,8 +82,8 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = (typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port);
+  const addr = server.address();
+  const bind = (typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port);
   debug('Listening on ' + bind);
-  console.log("Listening on " + (process.env.PORT || '4000'));
+  console.log('Listening on ' + (process.env.PORT || '4000'));
 }
